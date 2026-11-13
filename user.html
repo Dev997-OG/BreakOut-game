@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#090d1a">
+    <title>Neon Breakout — Arcade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="arcade">
+        <header class="topbar">
+            <a class="brand" href="#" aria-label="Neon Breakout home">
+                <span class="brand-mark" aria-hidden="true">✦</span>
+                <span>NEON<span class="brand-accent">BREAKOUT</span></span>
+            </a>
+            <div class="topbar-note"><span class="live-dot" aria-hidden="true"></span> ARCADE MODE</div>
+        </header>
+
+        <section class="game-layout" aria-label="Breakout arcade game">
+            <div class="game-column">
+                <div class="game-heading">
+                    <div>
+                        <p class="eyebrow">A CLASSIC, RECHARGED</p>
+                        <h1>Clear the way<span>.</span></h1>
+                    </div>
+                    <p class="heading-aside">Keep the ball in play.<br>Collect a little extra power.</p>
+                </div>
+
+                <section class="game-card" aria-label="Game board">
+                    <div class="hud" aria-label="Game statistics">
+                        <div class="hud-stat">
+                            <span class="hud-label">SCORE</span>
+                            <strong id="score">00000</strong>
+                        </div>
+                        <div class="hud-stat hud-stat-center">
+                            <span class="hud-label">LEVEL</span>
+                            <strong id="level">01</strong>
+                        </div>
+                        <div class="hud-stat hud-stat-right">
+                            <span class="hud-label">BEST</span>
+                            <strong id="best">00000</strong>
+                        </div>
+                        <div class="lives" aria-label="3 lives remaining">
+                            <span class="hud-label">LIVES</span>
+                            <span id="lives" class="life-icons" aria-hidden="true">● ● ●</span>
+                        </div>
+                    </div>
+
+                    <div class="canvas-wrap">
+                        <canvas id="game" width="900" height="580" aria-label="Breakout game board. Move the paddle to bounce the ball and break every brick.">
+                            Your browser does not support the canvas element. Please use a modern browser to play.
+                        </canvas>
+                        <div id="game-overlay" class="game-overlay">
+                            <div class="overlay-content">
+                                <span id="overlay-kicker" class="overlay-kicker">READY PLAYER ONE</span>
+                                <h2 id="overlay-title">Your run starts here.</h2>
+                                <p id="overlay-message">Break every brick. Don't let the ball get past you.</p>
+                                <button id="overlay-action" class="primary-button" type="button">Launch ball <span aria-hidden="true">↗</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-controls">
+                        <p><kbd>←</kbd><kbd>→</kbd><span>or</span><kbd>A</kbd><kbd>D</kbd><span>move paddle</span></p>
+                        <p><kbd>SPACE</kbd><span>launch</span><kbd>ESC</kbd><span>pause</span></p>
+                    </div>
+                </section>
+
+                <p class="mobile-hint">Touch and drag anywhere on the board to move your paddle.</p>
+            </div>
+
+            <aside class="sidebar" aria-label="Game controls and tips">
+                <section class="side-card status-card">
+                    <div class="side-card-heading">
+                        <span class="side-icon" aria-hidden="true">◈</span>
+                        <span>YOUR SESSION</span>
+                    </div>
+                    <p id="session-status" class="session-status">Ready when you are</p>
+                    <div class="progress-track" role="progressbar" aria-label="Bricks cleared this level" aria-valuemin="0" aria-valuemax="45" aria-valuenow="0">
+                        <span id="level-progress"></span>
+                    </div>
+                    <p id="progress-label" class="progress-label">0 bricks cleared</p>
+                    <button id="pause-btn" class="secondary-button" type="button" disabled>Ⅱ <span>Pause game</span></button>
+                    <button id="restart-btn" class="text-button" type="button">↻ <span>New game</span></button>
+                </section>
+
+                <section class="side-card power-card">
+                    <div class="side-card-heading">
+                        <span class="side-icon power-icon" aria-hidden="true">✳</span>
+                        <span>POWER-UPS</span>
+                    </div>
+                    <div class="power-row">
+                        <span class="power-badge wide-badge" aria-hidden="true">↔</span>
+                        <p><strong>Wide paddle</strong><span>More room to catch</span></p>
+                    </div>
+                    <div class="power-row">
+                        <span class="power-badge life-badge" aria-hidden="true">♥</span>
+                        <p><strong>Extra life</strong><span>One more chance</span></p>
+                    </div>
+                    <p class="power-note">Keep an eye out — they drop from broken bricks.</p>
+                </section>
+
+                <div class="tip-card">
+                    <span aria-hidden="true">✦</span>
+                    <p><strong>Pro tip</strong> The spot where the ball hits your paddle changes its angle. Aim for the edges.</p>
+                </div>
+            </aside>
+        </section>
+
+        <footer class="footer">
+            <span>MADE FOR THE LOVE OF ARCADE</span>
+            <button id="sound-btn" class="sound-button" type="button" aria-pressed="true" aria-label="Mute game sounds">♫ <span>Sound on</span></button>
+        </footer>
+    </main>
+    <script src="logic.js"></script>
+</body>
+</html>
